@@ -238,6 +238,24 @@ namespace passport {
 	};
 }
 
+namespace cats_sound {
+	void sound(){
+		cout << "Myau!" << endl;
+	}
+}
+
+namespace dogs_sound {
+	void sound() {
+		cout << "Barking!" << endl;
+	}
+}
+
+namespace parrots_sound {
+	void sound() {
+		cout << "Parrot sound!" << endl;
+	}
+}
+
 int main() {
 	fraction::Fraction p1(3, 7);
 	fraction::Fraction p2(2, 5);
@@ -267,6 +285,10 @@ int main() {
 	{
 		cout << homePet[i]->getName() << endl;
 	}
+	cout << "\n\n";
+	dogs_sound::sound();
+	cats_sound::sound();
+	parrots_sound::sound();
 	cout << "\n\n";
 	for (size_t i = 0; i < 3; i++)
 	{
