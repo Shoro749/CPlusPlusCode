@@ -47,15 +47,24 @@ public:
 	{
 		try {
 			if (year > 15) {
-				throw exception("Dogs don't live that long");
+				this->year = 0;
+				throw exception("Dogs don't live that long\n\n");
+			}
+			else {
+				this->year = year;
+			} 
+			if (type != "Dog") {
+				throw string();
 			}
 			else {
 				this->type = type;
-				this->year = year;
 			}
 		}
 		catch (exception ex) {
 			cout << ex.what() << endl;
+		}
+		catch (...) {
+			cout << "ERROR! There is no such type!\n\n";
 		}
 	}
 
@@ -76,6 +85,7 @@ public:
 		return this->year;
 	}
 	virtual ~Dog() {
+		this->year = 0;
 		this->type.clear();
 	}
 };
@@ -94,15 +104,25 @@ public:
 	{
 		try {
 			if (year > 15) {
-				throw exception("Cats don't live that long");
+				this->year = 0;
+				throw exception("Cats don't live that long\n\n");
+			}
+			else {
+				this->year = year;
+			}
+			
+			if (type != "Cat") {
+				throw string();
 			}
 			else {
 				this->type = type;
-				this->year = year;
 			}
 		}
 		catch (exception ex) {
 			cout << ex.what() << endl;
+		}
+		catch (...) {
+			cout << "ERROR! There is no such type!\n\n";
 		}
 	}
 
@@ -124,6 +144,7 @@ public:
 	}
 	virtual ~Cat() {
 		this->type.clear();
+		this->year = 0;
 	}
 };
 
@@ -141,15 +162,25 @@ public:
 	{
 		try {
 			if (year > 15) {
-				throw exception("Parrots don't live that long");
+				this->year = 0;
+				throw exception("Parrots don't live that long\n\n");
+			}
+			else {
+				this->year = year;
+			}
+			if (type != "Parrot") {
+				this->type = "unknown";
+				throw string();
 			}
 			else {
 				this->type = type;
-				this->year = year;
 			}
 		}
 		catch (exception ex) {
 			cout << ex.what() << endl;
+		}
+		catch (...) {
+			cout << "Parrot: ERROR! There is no such type!\n\n";
 		}
 	}
 
@@ -171,14 +202,15 @@ public:
 	}
 	virtual ~Parrot() {
 		this->type.clear();
+		this->year = 0;
 	}
 };
 
 int main() {
 	HomePet** homePet = new HomePet * [3] {
 		new Dog("Bobik", "Dog", 5),
-			new Cat("Pushok", "Cat", 20),
-			new Parrot("Kesha", "Parrot", 3),
+			new Cat("Pushok", "Cat", 9),
+			new Parrot("Kesha", "Bag", 16),
 	};
 	for (size_t i = 0; i < 3; i++)
 	{
